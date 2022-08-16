@@ -1,0 +1,22 @@
+{
+  "name": "node_etim_tcc_glub",
+  "version": "1.0.0",
+  "description": "Gerenciamento de lixo urbano brasileiro backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Bruna, Camila, Guilherme, Isabela, Isabelly, Jhonatan",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
