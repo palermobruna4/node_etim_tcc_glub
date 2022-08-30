@@ -1,7 +1,14 @@
 const express = require('express');
+const cors = require('cors');
+
+const router = require('./routes/routes');
 
 const app = express();
+app.use(cors());
+app.use(express.json());
+app.use(router);
 
+// ordem importa
 // const porta = process.env.Port || 3333;
 
 const porta = 3333;
