@@ -21,7 +21,7 @@ router.get('/cidades',cidadesController.listarCidades);
 //excluir
 
 router.get('/comentarios',comentariosController.listarComentarios);
-//cadastrar
+router.get('/comentarios',comentariosController.create);
 //editar
 //excluir
 
@@ -31,7 +31,7 @@ router.get('/enderecos',enderecosController.listarEnderecos);
 //excluir
 
 router.get('/imagens',imagensController.listarImagens);
-//cadastrar
+router.post('/imagens',imagensController.create);
 //editar
 //excluir
 
