@@ -36,7 +36,7 @@ router.get('/imagens',imagensController.listarImagens);
 //excluir
 
 router.get('/mensagens',mensagensController.listarMensagens);
-//cadastrar
+router.post('/mensagens',mensagensController.create);
 //editar
 //excluir
 
