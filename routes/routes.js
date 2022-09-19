@@ -16,7 +16,7 @@ const usuariosController = require('../controllers/usuariosController');
 //definição de rotas
 
 router.get('/cidades',cidadesController.listarCidades);
-//cadastrar
+router.post('/cidades',cidadesController.create);
 //editar
 //excluir
 
