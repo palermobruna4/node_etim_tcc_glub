@@ -21,7 +21,7 @@ router.get('/cidades',cidadesController.listarCidades);
 //excluir
 
 router.get('/comentarios',comentariosController.listarComentarios);
-//cadastrar
+router.get('/comentarios',comentariosController.create);
 //editar
 //excluir
 
