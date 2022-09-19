@@ -51,7 +51,7 @@ router.get('/prefeituras',prefeiturasController.listarPrefeituras);
 //excluir
 
 router.get('/usuarios',usuariosController.listarUsuarios);
-//cadastrar
+router.post('/usuarios',usuariosController.create);
 //editar
 //excluir
 
