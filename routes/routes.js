@@ -26,7 +26,7 @@ router.get('/comentarios',comentariosController.listarComentarios);
 //excluir
 
 router.get('/enderecos',enderecosController.listarEnderecos);
-//cadastrar
+router.get('/postagens',postagensController.create);
 //editar
 //excluir
 
@@ -41,7 +41,7 @@ router.get('/mensagens',mensagensController.listarMensagens);
 //excluir
 
 router.get('/postagens',postagensController.listarPostagens);
-//cadastrar
+router.get('/postagens',postagensController.create);
 //editar
 //excluir
 
