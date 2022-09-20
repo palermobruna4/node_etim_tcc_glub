@@ -18,7 +18,7 @@ module.exports = {
                 // parâmtros passados via corpo da requisição
             const { cid_nome, cid_uf } = request.body;  
                 // instrução sql para inserção
-            const sql = 'insert into cidades(cid_nome, cid_uf) values("Rio de Janeiro", "RJ")'; 
+            const sql = 'insert into cidades(cid_nome, cid_uf) values(?, ?)'; 
                 // definição de array com os parâmetros que receberam os valores do front-end
             const values = [ cid_nome, cid_uf ]; 
                 // executa a instrução de inserção no banco de dados       
