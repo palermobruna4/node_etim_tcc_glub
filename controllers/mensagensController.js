@@ -17,7 +17,7 @@ async create(request, response) {
             // parâmtros passados via corpo da requisição
         const { msm_texto, use_id,pre_id, data } = request.body;  
             // instrução sql para inserção
-        const sql = 'insert into mensagens (msm_texto, pre_id, use_id, data) values ("sometimes by accident, sometimes on purpose", 4, 4,"2022-02-17")'; 
+        const sql = 'insert into mensagens (msm_texto, pre_id, use_id, data) values (?, ?, ?, ?)'; 
             // definição de array com os parâmetros que receberam os valores do front-end
         const values = [msm_texto, use_id,pre_id, data]; 
             // executa a instrução de inserção no banco de dados       
