@@ -17,7 +17,7 @@ module.exports = {
                 // parâmtros passados via corpo da requisição
             const { end_logradouro, end_num, end_bairro, end_cep, cid_id  } = request.body;  
                 // instrução sql para inserção
-            const sql = 'insert into enderecos(use_id, end_logradouro, end_num, end_bairro, end_cep, cid_id) values (4,"Rua Calipso", 696, "Jardim Itajai", 04855180, 4)';
+            const sql = 'insert into enderecos(use_id, end_logradouro, end_num, end_bairro, end_cep, cid_id) values (?,?, ?, ? ?, npm);';
             
                 // definição de array com os parâmetros que receberam os valores do front-end
             const values = [use_id, end_logradouro, end_num, end_bairro, end_cep, cid_id ]; 

@@ -17,7 +17,7 @@ async create(request, response) {
            
         const { post_data, post_titulo, post_conteudo, post_destaque, post_ativo, pre_id  } = request.body;  
 
-        const sql = 'insert into postagens(post_data, post_titulo, post_conteudo, post_destaque, post_ativo, pre_id) values ("2022-09-11", "Caminhao de lixo", "lorem ipsumm makiena", 0, 1, 4)';
+        const sql = 'insert into postagens(post_data, post_titulo, post_conteudo, post_destaque, post_ativo, pre_id) values (?, ?,?, ?, ?, 4)';
         
            
         const values = [post_id, post_data, post_titulo, post_conteudo, post_destaque, post_ativo, pre_id]; 
