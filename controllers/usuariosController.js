@@ -17,9 +17,9 @@ module.exports = {
                 // parâmtros passados via corpo da requisição
             const {use_nome, use_email, use_senha, use_tipo} = request.body;  
                 // instrução sql para inserção
-            const sql = 'INSERT INTO usuarios(use_nome, use_email, use_senha, use_tipo) values ("Samuel Joaquim Monteiro", "samuelmanueljoaquim@uol.com", "QTakJ8JaL4", 0)';
+            const sql = 'INSERT INTO usuarios(use_nome, use_email, use_senha, use_tipo) values (?, ?, ?, ?)';
                 // definição de array com os parâmetros que receberam os valores do front-end
-            const values = [use_id, use_nome, use_email, use_senha, use_tipo]; 
+            const values = [use_nome, use_email, use_senha, use_tipo]; 
                 // executa a instrução de inserção no banco de dados       
             const confirmacao = await db.query(sql, values);
                 // Exibe o id do registro inserido
