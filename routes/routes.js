@@ -22,7 +22,7 @@ router.get('/cidades',cidadesController.listarCidades);
 
 router.get('/comentarios',comentariosController.listarComentarios);
 router.post('/comentarios',comentariosController.create);
-//editar
+router.patch('/comentarios/coment_id',comentariosController.update);
 //excluir
 
 router.get('/enderecos',enderecosController.listarEnderecos);
