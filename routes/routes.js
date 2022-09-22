@@ -26,8 +26,8 @@ router.get('/comentarios',comentariosController.listarComentarios);
 //excluir
 
 router.get('/enderecos',enderecosController.listarEnderecos);
-router.get('/postagens',postagensController.create);
-//editar
+router.post('/enderecos',enderecosController.create);
+router.patch('/enderecos/:use_id',enderecosController.update);
 //excluir
 
 router.get('/imagens',imagensController.listarImagens);
@@ -41,8 +41,7 @@ router.get('/mensagens',mensagensController.listarMensagens);
 //excluir
 
 router.get('/postagens',postagensController.listarPostagens);
-router.get('/postagens',postagensController.create);
-//editar
+router.post('/postagens',postagensController.create);
 //excluir
 
 router.get('/prefeituras',prefeiturasController.listarPrefeituras);

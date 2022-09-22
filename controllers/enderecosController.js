@@ -31,4 +31,20 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }   
     },
-    };
+    async update(request, response) {
+        try {
+                // parâmtros passados via corpo da requisição
+            const { end_logradouro, end_num, end_bairro, end_cep, cid_id  } = request.body;  
+            const {use_id} = request.params;
+            const sql = 'UPDATE enderecos SET end_logradouro = ?, end_num = ?, end_bairro =?, end_cep=?, cid_id=? WHERE use_id =?;';
+                // definição de array com os parâmetros que receberam os valores do front-end
+            const values = [end_logradouro, end_num, end_bairro, end_cep, cid_id, use_id ]; 
+                // executa a instrução de inserção no banco de dados       
+            const atualizacao = await db.query(sql, values);
+                // Exibe o id do registro inserido
+            return response.status(200).json({confirma: 'Sucesso', message: 'dados att'});
+        } catch (error) { 
+            return response.status(500).json({confirma: 'Erro', message: error});
+        }   
+    },
+};
