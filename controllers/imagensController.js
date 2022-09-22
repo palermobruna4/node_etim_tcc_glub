@@ -30,4 +30,23 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }   
     }, 
+    async update(request, response) {
+        try {
+            // parâmetros passados via corpo da requisição
+        const { img_descricao, img_nome, post_id } = request.body;
+            // parâmetros passado via url na chamada do api pelo front-end
+        const { img_id } = request.params;
+            // instrução sql para atualização
+        const sql = 'UPDATE imagens SET img_descricao = ?, img_nome = ?, post_id = ? WHERE img_id = ?;';
+           // definição de array com os parâmetros que receberam os valores do front-end
+        const values = [img_descricao, img_nome, post_id, img_id];
+           // executa a instrução de atualização no banco de dados
+        const atualizacao = await db.query (sql, values);
+           //Mensagem de retorno no formato JSON
+        return response.status(200).json({confirma: 'Sucesso', message: 'Dados atualizados'});
+    } catch (error) {
+        return response.status(500).json({confirma: 'Erro', message: error});
+        }
+    }
 };
+

@@ -31,7 +31,7 @@ router.get('/enderecos',enderecosController.listarEnderecos);
 
 router.get('/imagens',imagensController.listarImagens);
 router.post('/imagens',imagensController.create);
-//editar
+router.patch('/imagens/:img_id',imagensController.update);
 //excluir
 
 router.get('/mensagens',mensagensController.listarMensagens);
