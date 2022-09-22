@@ -46,7 +46,7 @@ router.get('/postagens',postagensController.listarPostagens);
 //excluir
 
 router.get('/prefeituras',prefeiturasController.listarPrefeituras);
-router.get('/prefeituras',prefeiturasController.create);
+router.post('/prefeituras',prefeiturasController.create);
 //editar
 //excluir
 

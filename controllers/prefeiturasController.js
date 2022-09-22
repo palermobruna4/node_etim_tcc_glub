@@ -17,9 +17,9 @@ module.exports = {
                 // parâmtros passados via corpo da requisição
             const { cid_id} = request.body;  
                 // instrução sql para inserção
-            const sql = 'insert into prefeituras(use_id, cid_id) values (4, 4);'; 
+            const sql = 'insert into prefeituras(cid_id) values (?)'; 
                 // definição de array com os parâmetros que receberam os valores do front-end
-            const values = []; 
+            const values = [cid_id]; 
                 // executa a instrução de inserção no banco de dados       
             const confirmacao = await db.query(sql, values);
                 // Exibe o id do registro inserido
