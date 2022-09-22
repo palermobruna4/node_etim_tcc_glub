@@ -17,7 +17,7 @@ module.exports = {
                 // parâmtros passados via corpo da requisição
             const { use_id, coment_texto, post_id, coment_pre_resposta, coment_status, coment_moderacao } = request.body;  
                 // instrução sql para inserção
-            const sql = '(use_id, coment_texto, post_id, coment_pre_resposta, coment_status, coment_moderacao) values (?, ?, ?, ?, ?, ?)'; 
+            const sql = 'INSERT INTO comentarios(use_id, coment_texto, post_id, coment_pre_resposta, coment_status, coment_moderacao) values (?, ?, ?, ?, ?, ?)'; 
                 // definição de array com os parâmetros que receberam os valores do front-end
             const values = [use_id, coment_texto, post_id, coment_pre_resposta, coment_status, coment_moderacao]; 
                 // executa a instrução de inserção no banco de dados       
