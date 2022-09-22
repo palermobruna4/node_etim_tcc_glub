@@ -31,4 +31,17 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }   
     }, 
+    async update(request, response) {
+        try {
+            const { cid_nome, cid_uf } = request.body;
+            // paramêtros passado via url na chamada de api pelo front-end
+            const { cid_id } = request.params;  
+            const sql = 'UPDATE cidades SET cid_nome = ?, cid_uf = ? WHERE cid_id = ?;'; 
+            const values = [ cid_nome, cid_uf, cid_id ];     
+            const atualizacao = await db.query(sql, values);
+            return response.status(200).json({confirma: 'Sucesso', message: 'Dados Atualizados'});
+        } catch (error) { 
+            return response.status(500).json({confirma: 'Erro', message: error});
+        }   
+    }, 
 };

@@ -17,7 +17,7 @@ const usuariosController = require('../controllers/usuariosController');
 
 router.get('/cidades',cidadesController.listarCidades);
 router.post('/cidades',cidadesController.create);
-//editar
+router.patch('/cidades/:cid_id',cidadesController.update);
 //excluir
 
 router.get('/comentarios',comentariosController.listarComentarios);
