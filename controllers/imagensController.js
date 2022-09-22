@@ -17,7 +17,7 @@ module.exports = {
                 // parâmtros passados via corpo da requisição
             const { img_descricao, img_nome, post_id } = request.body;  
                 // instrução sql para inserção
-            const sql = 'INSERT into imagens (img_descricao, img_nome, post_id) values ("imagem de cachorro", "https://abrir.link/ykqkU", 1)'; 
+            const sql = 'INSERT into imagens (img_descricao, img_nome, post_id) values (?, ?, ?)'; 
                 // definição de array com os parâmetros que receberam os valores do front-end
             const values = [img_descricao, img_nome, post_id]; 
                 // executa a instrução de inserção no banco de dados       
