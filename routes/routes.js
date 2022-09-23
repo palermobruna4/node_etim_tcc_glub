@@ -37,7 +37,7 @@ router.get('/imagens',imagensController.listarImagens);
 
 router.get('/mensagens',mensagensController.listarMensagens);
 router.post('/mensagens',mensagensController.create);
-//editar
+router.patch('/mensagens/:msm_id',mensagensController.update);
 //excluir
 
 router.get('/postagens',postagensController.listarPostagens);

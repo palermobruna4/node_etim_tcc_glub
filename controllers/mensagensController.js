@@ -30,4 +30,17 @@ async create(request, response) {
         return response.status(500).json({confirma: 'Erro', message: error});
     }  
   },
+
+  async update(request, response) {
+    try{
+        const { msm_texto, use_id,pre_id, data} = request.body;
+        const {msm_id} = request.params;
+        const sql = 'UPDATE mensagens SET msm_texto = ?, pre_id = ?, use_id =? , data = ? WHERE msm_id = ?; ';
+        const values = [msm_id, use_id, msm_texto,  pre_id, data];
+        const atualizacao = await db.query(sql, values);
+        return response.status(200).json({confirma: 'Sucesso', message: 'Dados Atualizados'});
+    }catch (error){
+    return response.status(500).json({confirma: 'Erro', message:error});
+        }
+    },
 };
