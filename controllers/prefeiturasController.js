@@ -38,7 +38,7 @@ module.exports = {
             // parâmetro passado via url na chamada da api pelo front-end
         const { cid_id } = request. params;
             // instrução sql para atualização
-        const sql = 'UPDATE comentarios SET use_id = ?, coment_texto = ?, post_id = ?, coment_pre_resposta = ?, coment_status = ?, coment_moderacao = ? WHERE coment_id =  ?;';
+        const sql = 'UPDATE prefeituras SET cid_id;';
             // definição de array com os parâmetros que receberam os valores do front-end
         const values = [ use_id, cid_id];
             // executa a instrução de atualização no banco de dados
