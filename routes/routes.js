@@ -38,7 +38,7 @@ router.get('/imagens',imagensController.listarImagens);
 router.get('/mensagens',mensagensController.listarMensagens);
 router.post('/mensagens',mensagensController.create);
 router.patch('/mensagens/:msm_id',mensagensController.update);
-//excluir
+router.delete('/mensagens/:msm_id',mensagensController.delete);
 
 router.get('/postagens',postagensController.listarPostagens);
 //cadastrar
