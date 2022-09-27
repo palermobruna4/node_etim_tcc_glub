@@ -23,7 +23,7 @@ router.get('/cidades',cidadesController.listarCidades);
 router.get('/comentarios',comentariosController.listarComentarios);
 router.post('/comentarios',comentariosController.create);
 router.patch('/comentarios/:coment_id',comentariosController.update);
-//excluir
+router.delete('/comentarios/:coment_id',comentariosController.delete);
 
 router.get('/enderecos',enderecosController.listarEnderecos);
 //cadastrar
@@ -47,7 +47,7 @@ router.get('/postagens',postagensController.listarPostagens);
 
 router.get('/prefeituras',prefeiturasController.listarPrefeituras);
 router.post('/prefeituras',prefeiturasController.create);
-router.patch('/prefeituras/:use_id',comentariosController.update);
+router.patch('/prefeituras/:use_id',prefeiturasController.update);
 //excluir
 
 router.get('/usuarios',usuariosController.listarUsuarios);
