@@ -28,7 +28,7 @@ router.get('/comentarios',comentariosController.listarComentarios);
 router.get('/enderecos',enderecosController.listarEnderecos);
 router.post('/enderecos',enderecosController.create);
 router.patch('/enderecos/:use_id',enderecosController.update);
-//excluir
+router.delete('/enderecos/:use_id',enderecosController.delete);
 
 router.get('/imagens',imagensController.listarImagens);
 //cadastrar

@@ -1,3 +1,4 @@
+//jhonatan
 const { json } = require("express");
 const db = require("../database/connection");
 
@@ -46,5 +47,17 @@ module.exports = {
         } catch (error) { 
             return response.status(500).json({confirma: 'Erro', message: error});
         }   
+    },
+    async delete(request, response) { 
+        try {
+
+            const { cid_id } = request.params;
+            const sql = 'DELETE FROM enderecos WHERE cid_id = ?'; 
+            const values = [cid_id]; 
+            await db.query(sql, values);  
+            return response.status(200).json({confirma: 'Sucesso', message:'cidade com id ' + cid_id + ' excluída com sucesso'}); 
+        } catch (error) {
+            return response.status(500).json({confirma: 'Erro', message: error});
+        }        
     },
 };
