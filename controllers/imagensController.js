@@ -5,7 +5,7 @@ const db = require("../database/connection");
 module.exports = {
     async listarImagens(request, response){
         try{
-            const sql = 'SELECT img_descricao, img_id, img_nome, post_id FROM imagens';
+            const sql = 'SELECT img.img_id, img.img_descricao, img.img_nome, img.post_id from imagens img INNER JOIN postagens post ON post.post_id = img.post_id;';
             const imagens = await db.query(sql);
             return response.status(200).json({confirma: 'Sucesso', nResults: imagens[0].length, menssage: imagens[0]});
         } catch(error){
@@ -67,4 +67,4 @@ module.exports = {
         }        
     },
 };
-
+ 
