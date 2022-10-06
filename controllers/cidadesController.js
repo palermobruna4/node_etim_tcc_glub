@@ -6,7 +6,7 @@ const db = require("../database/connection");
 module.exports = {
     async listarCidades(request, response){
         try{
-            const sql = 'SELECT cid_id, cid_nome, cid_uf FROM cidades;';
+            const sql = 'SELECT cid.cid_id, cid.cid_nome, cid_uf FROM cidades cid;';
             const cidades = await db.query(sql);
             return response.status(200).json({confirma: 'Sucesso', nResults: cidades[0].length, message: cidades[0]});
         } catch(error){
