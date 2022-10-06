@@ -43,6 +43,7 @@ router.get('/mensagens',mensagensController.listarMensagens);
 router.get('/postagens',postagensController.listarPostagens);
 router.post('/postagens',postagensController.create);
 //excluir
+router.patch('/postagens/:post_id',postagensController.update);
 
 router.get('/prefeituras',prefeiturasController.listarPrefeituras);
 //cadastrar
