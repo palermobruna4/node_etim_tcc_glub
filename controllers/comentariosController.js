@@ -5,8 +5,11 @@ const db = require("../database/connection");
 module.exports = {
     async listarComentarios(request, response){
         try{
-            const sql = 'SELECT coment_id, use_id, coment_texto, post_id, coment_pre_resposta, coment_status, coment_moderacao FROM comentarios';
-            const comentarios = await db.query(sql);
+            const { page = 1, limit = 5 } = request.query;
+            const inicio = (page - 1) * limit;
+            const sql = 'SELECT com.coment_id, usu.use_nome, com.coment_texto, com.coment_pre_resposta, com.coment_status = 1 as coment_status, com.coment_moderacao = 1 as coment_moderacao FROM comentarios com INNER JOIN usuarios usu ON usu.use_id = com.use_id LIMIT ?, ?;';
+            const values = [inicio, parseInt(limit)];
+            const comentarios = await db.query(sql, values);
             return response.status(200).json({confirma: 'Sucesso', nResults: comentarios[0].length, message: comentarios[0]});
         } catch(error){
             return response.status(500).json({confirma: 'Erro', message:error});
