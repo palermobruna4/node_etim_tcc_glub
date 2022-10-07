@@ -5,8 +5,13 @@ const db = require("../database/connection");
 module.exports = {
     async listarMensagens(request, response){
         try{
-            const sql= "select msm_id, msm_texto, pre_id, use_id, data from mensagens;";
-            const mensagens= await db.query(sql);
+   
+            const { cid_nome = '%%' } = request.body;
+            
+
+            const sql= 'SELECT cid.cid_nome, usu.use_nome, msm.msm_texto, msm.data FROM mensagens msm INNER JOIN usuarios usu ON usu.use_id = msm.use_id INNER JOIN prefeituras pre ON pre.use_id = msm.pre_id INNER JOIN cidades cid ON cid.cid_id = pre.cid_id WHERE cid.cid_nome like ?;';
+            const values = [cid_nome];
+            const mensagens= await db.query(sql, values);
             return response.status(200).json({confirma: 'Sucesso', nResults: mensagens[0] .lenght, mesage: mensagens[0]});
         } catch(error){
             return response.status(500).json({confirma: 'Erro', message:error});
