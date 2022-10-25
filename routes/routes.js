@@ -53,6 +53,7 @@ router.get('/prefeituras',prefeiturasController.listarPrefeituras);
 router.get('/usuarios',usuariosController.listarUsuarios);
 router.post('/usuarios',usuariosController.create);
 router.patch('/usuarios/:use_id', usuariosController.update);
+router.get('/usuarios/login',usuariosController.login);
 //editar
 //excluir
 

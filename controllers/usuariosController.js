@@ -50,5 +50,20 @@ module.exports = {
             return response.status(500).json({confirma: 'Erro', message: error});
         }   
     }, 
+
+    async login(request, response){
+
+        const {use_email, use_senha} = request.body
+        try{
+            const sql = "SELECT  use_id, use_nome, use_email, use_senha FROM usuarios WHERE use_email = ? AND use_senha = ?;";
+            const values = [use_email, use_senha];
+            const usuarios = await db.query(sql, values);
+            return response.status(200).json({confirma: 'Sucesso', nResults: usuarios[0].length, message: usuarios[0]});
+        } catch(error){
+            return response.status(500).json({confirma: 'Erro', message:error});
+        }
+    }
+
+    
     
 }
