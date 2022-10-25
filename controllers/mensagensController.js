@@ -7,10 +7,11 @@ module.exports = {
         try{
    
             const { cid_nome = '%%' } = request.body;
-            
 
+           const nome_cid = cid_nome === '%%' ? '%%' : '%' + cid_nome + '%';
+            
             const sql= 'SELECT cid.cid_nome, usu.use_nome, msm.msm_texto, msm.data FROM mensagens msm INNER JOIN usuarios usu ON usu.use_id = msm.use_id INNER JOIN prefeituras pre ON pre.use_id = msm.pre_id INNER JOIN cidades cid ON cid.cid_id = pre.cid_id WHERE cid.cid_nome like ?;';
-            const values = [cid_nome];
+            const values = [nome_cid];
             const mensagens= await db.query(sql, values);
             return response.status(200).json({confirma: 'Sucesso', nResults: mensagens[0] .lenght, mesage: mensagens[0]});
         } catch(error){
