@@ -1,13 +1,17 @@
-//Camila
-
 const { json } = require("express");
 const db = require("../database/connection");
 
 module.exports = {
     async listarCidades(request, response){
         try{
-            const sql = 'SELECT cid.cid_id, cid.cid_nome, cid_uf FROM cidades cid;';
-            const cidades = await db.query(sql);
+
+            const {cid_nome = '%%'} = request.body;
+            
+            const n_cid = cid_nome === '%%' ? '%%' : '%' + cid_nome + '%';
+
+            const sql = 'SELECT cid.cid_id, cid.cid_nome, cid_uf FROM cidades cid WHERE cid.cid_nome like ?;';
+            const values = [n_cid];
+            const cidades = await db.query(sql, values);
             return response.status(200).json({confirma: 'Sucesso', nResults: cidades[0].length, message: cidades[0]});
         } catch(error){
             return response.status(500).json({confirma: 'Erro', message:error});
