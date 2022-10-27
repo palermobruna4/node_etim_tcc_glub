@@ -8,10 +8,12 @@ module.exports = {
             const{page = 1,limit=5}= request.query
             const inicio=(page-1)* limit;
 
+            const {cid_nome = '%%'} = request.body;
+            const no_cid = cid_nome === '%%' ? '%%' : '%' + cid_nome + '%';
 
-            const sql ='SELECT end.end_logradouro, end.end_num, end.end_bairro, end.end_cep, end.cid_id, cid.cid_nome, cid.cid_uf FROM enderecos end INNER JOIN cidades cid ON cid.cid_id = end.cid_id LIMIT ?, ?';
+            const sql ='SELECT end.end_logradouro, end.end_num, end.end_bairro, end.end_cep, end.cid_id, cid.cid_nome, cid.cid_uf FROM enderecos end INNER JOIN cidades cid ON cid.cid_id = end.cid_id WHERE cid.cid_nome like ? LIMIT ?, ?';
 
-            const values=[ inicio, parseInt(limit)]
+            const values=[ no_cid, inicio, parseInt(limit)];
             const enderecos = await db.query(sql, values);
             return response.status(200).json({confirma: 'Sucesso', nResults: enderecos[0].length, mesage: enderecos[0]});
            
