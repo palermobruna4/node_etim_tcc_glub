@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require("path")
 
 const router = require('./routes/routes');
 
@@ -7,6 +8,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(router);
+
+
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, '/views'))
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'imagens')))
 
 // ordem importa
 // const porta = process.env.Port || 3333;
@@ -20,5 +27,5 @@ app.listen(porta, () => {
 })
 
 app.get('/', (request, response) => {
-    response.send('Hello world')
+    response.render('login')
 })

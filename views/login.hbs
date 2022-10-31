@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login </title>
+    <link rel="icon" href="/imagens/logo-redonda.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/responsivo.css">
+</head>
+<body>
+ <!-- placeholder texto atrás do bloco que da para escrever em cima -->
+ <!-- _self abrir na mesma janela -->
+    <a href="/Programação/Visao Usuario/Guilherme/home/home.html"> <img src="/Imagens/Icones/Voltar.svg" alt="voltar" class="voltar"> </a> 
+    <div class="conteudo">
+ 
+        <img src="/Imagens/logo.png" alt="logo" class="logo">
+    <div class="bem_vindo">
+        <h2> Bem vindo(a) ao GLUB</h2>
+    </div>
+
+<form action="/login" method="POST"> 
+    <div class="login">
+        <input type="text" id="email" name="email" placeholder="Email">
+        
+    </div> 
+    <div class="senhaaa">
+        <input type="password" id="senha" name="senha" class="senha" placeholder="Senha">
+        <button type="button" class="ver-senha"> <img src="/Imagens/no-view.svg" alt="imagem" class="imagem-view"></button>
+    </div>
+    <div class="esqueceu_senha"> 
+        <a href="/Programação/Visao Usuario/Gonas/verifica-email/email-verifica.html" target="_self">
+        Esqueceu sua senha?</a>
+    </div>
+    <!-- <div class="senha_incorreta">  
+        <p> Email ou senha incorretos </p>
+    </div> -->
+    <div class="entrar">
+        <a href="/Programação/Visao Usuario/Guilherme/feed/feed.html"> <button class="btn_entrar"> Entrar</button></a>
+    </div>
+
+    <div class="divisor"></div>
+
+    <div class="ir_cadastrar">
+        <a href="/Programação/Visao Usuario/Bruna/cadastrar/cadastro.html" targe="_self" > Ainda não possui uma conta no site? Crie sua conta </a>
+    </div>
+    </div>
+
+    <script src="/script.js"></script>
+  </form>
+  
+  <!-- <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p> -->
+</body>
+</html>
